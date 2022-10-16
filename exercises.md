@@ -52,22 +52,57 @@ die Aufrufe wie bei Aufgabe 1 mit Kommentaren.
 
 ### Zusatzaufgabe
 
-Die beiden Kathetenlängen `a` und `b` können zu einem neuen Typ namens `catheti`
-gruppiert werden:
+Die beiden Kathetenlängen `a` und `b` können zu einem neuen Typ namens
+`ShortSides` gruppiert werden:
 
 ```go
-type Catheti struct {
-    A float64
-    B float64
+type ShortSides struct {
+    a float64
+    b float64
 }
 ```
 
-Schreiben Sie eine Methode `Hypotenuse`, welche auf `Catheti` operiert und keine
-weiteren Parameter erwartet.
+Schreiben Sie eine _Methode_ `Hypotenuse`, welche auf `ShortSides` operiert und
+keine weiteren Parameter erwartet.
 
 Testen Sie die Methode mit den gleichen Kathetenpaaren wie `computeHypotenuse`
 und notieren Sie sich die Ergebnisse als Kommentare hinter den Methodenaufrufen.
 
 ## 3) Quadratische Gleichungen lösen
+
+Quadratische Gleichungen der Form `ax² + bx + c = 0` lassen sich mithilfe der
+sogenannten _Mitternachtsformel_ lösen:
+
+    x = -b ± Quadratwurzel von (b² - 4ac) geteilt durch 2a
+
+Den Teil unter der Wurzel bezeichnet man als _Diskriminante_:
+
+    b² - 4ac
+
+Je nach Wert der Diskriminante `D` gibt es folgende Lösungen:
+
+- `D > 0`: zwei Lösungen
+- `D = 0`: eine Lösung
+- `D < 0`: keine Lösung
+
+Schreiben Sie eine Funktion namens `computeQuadraticFormula`, welche die
+Parameter `a`, `b` und `c` erwartet, und ein Slice mit den berechneten Lösungen
+zurückgibt.
+
+Tipp: Verwenden Sie die Funktion [`math.Pow`](https://pkg.go.dev/math#Pow) und
+[`math.Sqrt`](https://pkg.go.dev/math#Sqrt) für die Berechnung.
+
+Rufen Sie die Funktion dreimal auf, sodass je ein Ergebnis mit zwei Lösungen,
+mit einer Lösung und ohne Lösung entsteht. Dokumentieren Sie die Ergebnisse
+wiederum als Kommentare.
+
+### Zusatzaufgabe
+
+Lagern Sie die Berechnung der Diskriminanten in eine eigene Funktion
+namens `computeDiscriminant` aus. Testen Sie die Funktion separat mit den
+Testdaten von vorher und dokumentieren Sie die Ergebnisse als Kommentar.
+
+Schreiben Sie anschliessend die Funktion `computeQuadraticFormula` so um, dass
+sie zur Berechnung die Funktion `computeDiscriminant` verwendet.
 
 ## 4) Temperaturumrechnungen durchführen
