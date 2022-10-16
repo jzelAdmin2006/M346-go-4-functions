@@ -9,10 +9,10 @@ Sie hierzu die `// TODO: `-Kommentare im Code und die folgenden Instruktionen:
 
 ## 1) Note berechnen
 
-Eien Note von 1 (schlechteste) bis 6 (beste) kann linear anhand der erreichten
-und maximalen Punktezahl berechnet werden:
+Eien Note `N` von 1 (schlechteste) bis 6 (beste) kann linear anhand der
+erreichten Punktzahl `E` und maximalen Punktezahl `M` berechnet werden:
 
-    Note = (erreichte Punktzahl / maximale Punktzahl) * 5 + 1
+![Berechnung der Note](formulas/grade.png)
 
 Schreiben Sie eine Funktion namens `computeGrade`, welche die beiden Parameter
 `gotPoints` (erreichte Punktzahl) und `maxPoints` (maximale Punktzahl) erwartet
@@ -31,14 +31,14 @@ negative Punktzahlen, mehr Punkte erreicht als möglich) und einen entsprechende
 
 ## 2) Hypotenuse berechnen
 
-Der Satz von Pythagoras ist definiert als:
+Der Satz vom Pythagoras ist definiert als:
 
-    a² + b² = c²
+![Satz vom Pythagoras](formulas/pythagoras.png)
 
 Stellt man die Formel auf `c` um, kann man mit der Formel die Länge der
 Hypotenuse bei gegebenen Kathetenlängen berechnen:
 
-    c = Quadratwurzel von (a² + b²)
+![Berechnung der Hypotenuse](formulas/hypotenuse.png)
 
 Schreiben Sie eine Funktion namens `computeHypotenuse`, welche die beiden
 Kathetenlängen `a` und `b` als Parameter erwartet und die Länge der Hypotenuse
