@@ -23,7 +23,7 @@ und eine Note im Bereich `[1.0;6.0]` zurückgibt.
 Rufen Sie die Funktion dreimal auf und schreiben Sie das Ergebnis als Kommentar
 hinter den jeweiligen Funktionsaufruf, z.B.:
 
-    gotPoints(17.5, 28.0) // 4.125
+    computeGrade(17.5, 28.0) // 4.125
 
 ### Zusatzaufgabe
 
