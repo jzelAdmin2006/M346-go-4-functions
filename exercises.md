@@ -103,14 +103,16 @@ namens `computeDiscriminant` aus. Testen Sie die Funktion separat mit den
 Testdaten von vorher und dokumentieren Sie die Ergebnisse als Kommentar.
 
 Schreiben Sie anschliessend die Funktion `computeQuadraticFormula` so um, dass
-sie zur Berechnung die Funktion `computeDiscriminant` verwendet.
+sie zur Berechnung die Funktion `computeDiscriminant` verwendet:
+
+![Lösung(en) von quadratischen Gleichungen mithilfe der Diskriminanten berechnen](formulas/quadratic-formula-discriminant.png)
 
 ## 4) Temperaturumrechnungen durchführen
 
 Schreiben Sie zwei Funktionen `convertCelsiusToFahrenheit` und
-`convertFahrenheitToCelsius`, welche Temperaturangaben von Celsius nach
-Fahrenheit bzw. von Fahrenheit nach Celsius umrechnet. Verwenden Sie hierzu
-folgende Formeln:
+`convertFahrenheitToCelsius`, welche Temperaturangaben von Celsius (`C`) nach
+Fahrenheit (`F`) bzw. von Fahrenheit nach Celsius umrechnet. Verwenden Sie
+hierzu folgende Formeln:
 
 ![Fahrenheit in Celsius umrechnen](formulas/fahrenheit-to-celsius.png)
 
