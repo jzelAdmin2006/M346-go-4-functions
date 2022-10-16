@@ -84,8 +84,8 @@ einen Geldbetrag auf zwei Nachkommastellen formatiert auszugeben.
 
 Ausgabe:
 
-		2.50 $
-		3.33 €
+	    2.50 $
+	    3.33 €
 	 1234.57 ¥
 
 ## Funktionen mit mehreren Parametern und Rückgabewert
