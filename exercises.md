@@ -20,16 +20,17 @@ Schreiben Sie eine Funktion namens `computeGrade`, welche die beiden Parameter
 `gotPoints` (erreichte Punktzahl) und `maxPoints` (maximale Punktzahl) erwartet
 und eine Note im Bereich `[1.0;6.0]` zurückgibt.
 
-Rufen Sie die Funktion dreimal auf und schreiben Sie das Ergebnis als Kommentar
-hinter den jeweiligen Funktionsaufruf, z.B.:
+Rufen Sie die Funktion dreimal mit verschiedenen Werten auf und schreiben Sie
+das Ergebnis als Kommentar hinter den jeweiligen Funktionsaufruf, z.B.:
 
     computeGrade(17.5, 28.0) // 4.125
 
 ### Zusatzaufgabe
 
-Erweitern Sie die Funktion, sodass sie auf sinnlose Argumente reagiert (z.B.
-negative Punktzahlen, mehr Punkte erreicht als möglich) und einen entsprechenden
-`error` zurückgibt. Passen Sie Ihre Funktionsaufrufe entsprechend an.
+Erweitern Sie die Funktion `computeGrade`, sodass sie auf sinnlose Argumente
+reagiert (z.B.  negative Punktzahlen, mehr Punkte erreicht als möglich) und
+einen entsprechenden `error` zurückgibt. Passen Sie Ihre Funktionsaufrufe
+entsprechend an, um auf Fehler reagieren zu können.
 
 ## 2) Hypotenuse berechnen
 
@@ -85,7 +86,7 @@ Den Teil unter der Wurzel bezeichnet man als _Diskriminante_:
 
 ![Berechnung der Diskriminanten](formulas/discriminant.png)
 
-Je nach Wert der Diskriminante `D` gibt es folgende Lösungen:
+Je nach Wert der Diskriminante `D` gibt es eine unterschiedliche Anzahl an Lösungen:
 
 - `D > 0`: zwei Lösungen
 - `D = 0`: eine Lösung
@@ -119,7 +120,7 @@ siehe `ex4/main.go`
 
 Schreiben Sie zwei Funktionen `convertCelsiusToFahrenheit` und
 `convertFahrenheitToCelsius`, welche Temperaturangaben von Celsius (`C`) nach
-Fahrenheit (`F`) bzw. von Fahrenheit nach Celsius umrechnet. Verwenden Sie
+Fahrenheit (`F`) bzw. von Fahrenheit nach Celsius umrechnen. Verwenden Sie
 hierzu folgende Formeln:
 
 ![Fahrenheit in Celsius umrechnen](formulas/fahrenheit-to-celsius.png)

@@ -115,7 +115,7 @@ Ausgabe:
 ## Funktionen ohne Parameter mit Rückgabewert
 
 Die folgende Funktion generiert eine Zufallszahl zwischen 1 und 6, womit das
-Würfeln simuliert werden kann:
+Würfeln simuliert werden soll:
 
 ```go
 func rollDice() int {
@@ -139,15 +139,17 @@ nicht deterministisch wird:
 
 In vielen Programmiersprachen können Funktionen nur einen einzelnen Wert
 zurückgeben. (Natürlich können auch Datenstrukturen bestehend aus mehreren
-Werten zurückgegeben werden, aber eben nicht mehrere loose Werte.)
+Werten zurückgegeben werden, aber eben nicht mehrere eigenständige Werte.)
 
 Eine Funktion, die mehrere Werte zurückgibt, hat eine Liste von Rückgabetypen
 (in runden Klammern). Die folgende Funktion dividiert den gegebenen Dividenden
-(`dividend`) durch den gegebenen Divisor (`divisor`). Bei der Division gibt es
-einen Sonderfall: Die Division durch 0 (bzw. durch 0.0) ist nicht erlaubt. In
-diesem Fall soll auch ein Fehler (`error`, [Spec](https://go.dev/ref/spec#Errors))
-zurückgegeben werden. Bei einer regulären Division wird ein Ergebnis und _kein_
-Fehler (bzw. `nil`) zurückgegeben:
+(`dividend`) durch den gegebenen Divisor (`divisor`).
+
+Bei der Division gibt es einen Sonderfall: Die Division durch 0 (bzw. durch 0.0)
+ist nicht erlaubt. In diesem Fall soll auch ein Fehler (`error`,
+[Spec](https://go.dev/ref/spec#Errors)) zurückgegeben werden. Bei einer
+regulären Division wird ein Ergebnis und _kein_ Fehler (bzw. `nil`)
+zurückgegeben:
 
 ```go
 func divide(dividend, divisor float32) (float32, error) {
@@ -191,7 +193,7 @@ Hier wird der Fehler mithilfe der Funktion `fmt.Errorf` erzeugt, was analog zu
 `fmt.Printf` erfolgt, aber einen Wert vom Typ `error` zurückgibt.
 
 Wird eine Funktion aufgerufen, die möglicherweise einen Fehler zurückgibt, muss
-der Aufrufer diesen behandeln. Wird kein Fehler zurÜckgegeben (`err == nil`),
+der Aufrufer diesen behandeln. Wird kein Fehler zurückgegeben (`err == nil`),
 ist kein Fehler passiert, und das Ergebnis (`average`) kann verwendet werden.
 Wird hingegen ein Fehler zurückgegeben (`err == nil`), muss darauf reagiert
 werden. Das Ergebnis (`average`) wird dann keinen sinnvollen Wert haben und muss
@@ -266,7 +268,7 @@ func (c Celsius) Output() {
 }
 ```
 
-Der Parameter `c` wird neu zu einem _receiver argument_ dem Funktionsnamen
+Der Parameter `c` wird neu als _receiver argument_ dem Funktionsnamen
 vorangestellt. Die Funktion kann neu folgendermassen als Methode aufgerufen
 werden:
 
