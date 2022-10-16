@@ -9,7 +9,9 @@ Sie hierzu die `// TODO: `-Kommentare im Code und die folgenden Instruktionen:
 
 ## 1) Note berechnen
 
-Eien Note `N` von 1 (schlechteste) bis 6 (beste) kann linear anhand der
+siehe `ex1/main.go`
+
+Eine Note `N` von 1 (schlechteste) bis 6 (beste) kann linear anhand der
 erreichten Punktzahl `E` und maximalen Punktezahl `M` berechnet werden:
 
 ![Berechnung der Note](formulas/grade.png)
@@ -30,6 +32,8 @@ negative Punktzahlen, mehr Punkte erreicht als möglich) und einen entsprechende
 `error` zurückgibt. Passen Sie Ihre Funktionsaufrufe entsprechend an.
 
 ## 2) Hypotenuse berechnen
+
+siehe `ex2/main.go`
 
 Der Satz vom Pythagoras ist definiert als:
 
@@ -70,6 +74,8 @@ und notieren Sie sich die Ergebnisse als Kommentare hinter den Methodenaufrufen.
 
 ## 3) Quadratische Gleichungen lösen
 
+siehe `ex3/main.go`
+
 Quadratische Gleichungen der Form `ax² + bx + c = 0` lassen sich mithilfe der
 sogenannten _Mitternachtsformel_ lösen:
 
@@ -108,6 +114,8 @@ sie zur Berechnung die Funktion `computeDiscriminant` verwendet:
 ![Lösung(en) von quadratischen Gleichungen mithilfe der Diskriminanten berechnen](formulas/quadratic-formula-discriminant.png)
 
 ## 4) Temperaturumrechnungen durchführen
+
+siehe `ex4/main.go`
 
 Schreiben Sie zwei Funktionen `convertCelsiusToFahrenheit` und
 `convertFahrenheitToCelsius`, welche Temperaturangaben von Celsius (`C`) nach
