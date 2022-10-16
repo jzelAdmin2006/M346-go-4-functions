@@ -73,11 +73,11 @@ und notieren Sie sich die Ergebnisse als Kommentare hinter den Methodenaufrufen.
 Quadratische Gleichungen der Form `ax² + bx + c = 0` lassen sich mithilfe der
 sogenannten _Mitternachtsformel_ lösen:
 
-    x = -b ± Quadratwurzel von (b² - 4ac) geteilt durch 2a
+![Lösung(en) von quadratischen Gleichungen berechnen](formulas/quadratic-formula.png)
 
 Den Teil unter der Wurzel bezeichnet man als _Diskriminante_:
 
-    b² - 4ac
+![Berechnung der Diskriminanten](formulas/discriminant.png)
 
 Je nach Wert der Diskriminante `D` gibt es folgende Lösungen:
 
@@ -112,9 +112,9 @@ Schreiben Sie zwei Funktionen `convertCelsiusToFahrenheit` und
 Fahrenheit bzw. von Fahrenheit nach Celsius umrechnet. Verwenden Sie hierzu
 folgende Formeln:
 
-    celsius = (fahrenheit - 32) * 5/9
+![Fahrenheit in Celsius umrechnen](formulas/fahrenheit-to-celsius.png)
 
-    fahrenheit = celsius * 9/5 + 32
+![Celsius in Fahrenheit umrechnen](formulas/celsius-to-fahrenheit.png)
 
 Rufen Sie `convertCelsiusToFahrenheit` mit drei verschiedenen Werten auf und
 dokumentieren Sie die Ergebnisse als Kommentar.
