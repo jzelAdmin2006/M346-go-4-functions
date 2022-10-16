@@ -106,3 +106,56 @@ Schreiben Sie anschliessend die Funktion `computeQuadraticFormula` so um, dass
 sie zur Berechnung die Funktion `computeDiscriminant` verwendet.
 
 ## 4) Temperaturumrechnungen durchführen
+
+Schreiben Sie zwei Funktionen `convertCelsiusToFahrenheit` und
+`convertFahrenheitToCelsius`, welche Temperaturangaben von Celsius nach
+Fahrenheit bzw. von Fahrenheit nach Celsius umrechnet. Verwenden Sie hierzu
+folgende Formeln:
+
+    celsius = (fahrenheit - 32) * 5/9
+
+    fahrenheit = celsius * 9/5 + 32
+
+Rufen Sie `convertCelsiusToFahrenheit` mit drei verschiedenen Werten auf und
+dokumentieren Sie die Ergebnisse als Kommentar.
+
+Rufen Sie anschliessend `convertFahrenheitToCelsius` mit den Ergebnissen von
+vorher auf, sodass Sie wieder die ursprüngliche Angabe in Celsius erhalten
+sollten.
+
+### Zusatzaufgabe
+
+Gegeben sind folgende Typen:
+
+```go
+type Celsius float64
+type Fahrenheit float64
+```
+
+Schreiben Sie zwei Methoden `ConvertToFahrenheit` und `ConvertToCelsius` für
+`Celsius` bzw. `Fahrenheit`, sodass folgende Aufrufe möglich werden:
+
+```go
+var cozy Celsius = 23.0
+cozy.ConvertToFahrenheit()
+
+var cold Fahrenheit = 15.3
+cold.ConvertToCelsius()
+```
+
+Testen Sie die Methoden mit den Daten von vorher und dokumentieren Sie die
+Ergebnisse als Kommentare.
+
+Zusatzfrage: Welche Notation finden Sie übersichtlicher?
+
+```go
+fmt.Println(convertFahrenheitToCelsius(convertCelsiusToFahrenheit(23.0)))
+```
+
+Oder:
+
+```go
+var c Celsius = 23
+fmt.Println(c.ConvertToFahrenheit().ConvertToCelsius())
+```
+
