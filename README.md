@@ -1,85 +1,40 @@
----
-title: 'Funktionen (in Go)'
-subtitle: 'Modul 346, BBZW'
-author: 'Patrick Bucher'
----
+# Funktionen definieren und aufrufen
 
-# Just a function…
+Funktionen werden in Go mit dem Schlüsselwort `func`
+([Spec](https://go.dev/ref/spec#Function_declarations)) definiert.
 
-![John Carmack über Funktionen](pics/carmack-function.png){width=80%}
-
-# "Just" a function…?
-
-Wenn Sie es genau wissen wollen:
-
-![_Structure and Interpretation of Computer Programs_ (links: Scheme-Ausgabe von 1984/1996, 688 Seiten; rechts: JavaScript-Ausgabe von 2022, 640 Seiten)](pics/sicp-old-new.png)
-
-# Ein verwandtes Konzept: Cloud Functions
-
-!["serverless" Computing in der Cloud (im Uhrzeigersinn): AWS Lambda, Google Cloud Function, heroku serverless, Azure Functions](pics/cloud-functions.png)
-
-# Funktionen in der Mathematik (I)
-
-Definition:
-
-$$ y = f(x) = 2x $$
-
-Wertetabelle:
-
-| $x$ | $y$ |
-|----:|----:|
-|  -2 |  -4 |
-|  -1 |  -2 |
-|   0 |   0 |
-|   1 |   2 |
-|   2 |   4 |
-
-# Funktionen in der Mathematik (II)
-
-![Die Funktion $y=f(x)=2x$ als Plot](pics/function-y-2x.png){height=80%}
-
-# Funktionen in Go (I): Definition
-
-Die Funktion $y=f(x)=2x$ in Go:
+Eine mathematische Funktion wie `y=f(x)=2x` kann in Go folgendermassen
+implementiert werden:
 
 ```go
 func f(x int) int {
     y := 2 * x
     return x
 }
-f(2) // 4
 ```
 
-Oder:
+Die Funktion `f` nimmt einen Parameter namens `x` vom Typ `int` entgegen und
+gibt einen Wert vom Typ `int` zurück.
+
+Diese Funktion kann folgendermassen aufgerufen werden:
 
 ```go
-func f(x int) int {
-    return 2 * x
-}
-f(-2) // -4
+y := f(2)
+fmt.Println(y) // gibt "4" aus
 ```
 
-# Funktionen in Go (II): Aufruf
+## Funktionen ohne Parameter und ohne Rückgabewert
 
-Erweiterter Aufruf (zur Erzeugung der Wertetabelle):
+Die Funktion `main()` ist ein Spezialfall: Sie wird automatisch beim
+Programmstart aufgerufen. Sie hat weder Parameter noch einen Rückgabewert:
 
 ```go
-xs := []int{-2, -1, 0, 1, 2}
-for _, x := range xs {
-    y := f(x)
-    fmt.Printf("y=f(%d)=%d\n", x, y)
+func main() {
+    fmt.Println("Hello, World!")
 }
 ```
 
-Ausgabe:
-
-	y=f(-2)=-4
-	y=f(-1)=-2
-	y=f(0)=0
-	y=f(1)=2
-	y=f(2)=4
-
-# Funktionen in Go (III): Ohne Parameter, ohne Rückgabewert
+Man kann auch eigene Funktionen ohne Parameter und ohne Rückgabewert definieren:
 
 ```go
 func sayHello() {
@@ -92,7 +47,9 @@ Ausgabe:
 
     Hello
 
-# Funktionen in Go (IV): Mit Parameter, ohne Rückgabewert
+## Funktionen mit Parameter und ohne Rückgabewert
+
+Eine Funktion kann auch Parameter erwarten und keinen Rückgabewert haben:
 
 ```go
 func sayHelloTo(whom string) {
@@ -101,11 +58,17 @@ func sayHelloTo(whom string) {
 sayHelloTo("Alice")
 ```
 
+Hier wird der Parameter `whom` vom Typ `string` erwartet, um die jeweilige
+Person zu begrüssen.
+
 Ausgabe:
 
     Hello, Alice
 
-# Funktionen in Go (V): Mehrere Parameter, ohne Rückgabewert
+## Funktionen mit mehreren Parametern und ohne Rückgabewert
+
+Eine Funktion kann beliebig viele Parameter erwarten. Die Parameter werden durch
+Kommas voneinander getrennt:
 
 ```go
 func outputCurrency(amount float32, currency rune) {
@@ -116,13 +79,20 @@ outputCurrency(10.0/3.0, '€')
 outputCurrency(1234.567, '¥')
 ```
 
+Hier wird ein Betrag (`amount`) und ein Währungssymbol (`currency`) erwartet, um
+einen Geldbetrag auf zwei Nachkommastellen formatiert auszugeben.
+
 Ausgabe:
 
 		2.50 $
 		3.33 €
 	 1234.57 ¥
 
-# Funktionen in Go (VI): Mehrere Parameter, mit Rückgabewert
+## Funktionen mit mehreren Parametern und Rückgabewert
+
+Die folgende Funktion ist fast identisch zur vorherigen, gibt aber den
+formatierten String nicht auf die Konsole aus, sondern als String zurück. (Die
+Funktion hat den Rückgabetyp `string`):
 
 ```go
 func formatCurrency(amount float32, currency rune) string {
@@ -134,12 +104,18 @@ fmt.Println(dollars)
 fmt.Println(euros)
 ```
 
+Die Ausgabe mit `fmt.Println` wurde hier eigens ausprogrammiert, um die
+Rückgabewerte auszugeben.
+
 Ausgabe:
 
 		2.50 $
 		3.33 €
 
-# Funktionen in Go (VII): Keine Parameter, mit Rückgabewert
+## Funktionen ohne Parameter mit Rückgabewert
+
+Die folgende Funktion generiert eine Zufallszahl zwischen 1 und 6, womit das
+Würfeln simuliert werden kann:
 
 ```go
 func rollDice() int {
@@ -151,13 +127,27 @@ fmt.Println(rollDice())
 fmt.Println(rollDice())
 ```
 
-Ausgabe (nicht deterministisch):
+Mithilfe von `rand.Seed` wird der Zufallszahlengenerator mit dem jeweils aktuellen
+Timestamp (`time.Now().Unix`) initialisiert, sodass die Ausgabe zufällig und
+nicht deterministisch wird:
 
 	1
 	2
 	5
 
-# Funktionen in Go (VIII): Zwei Parameter, mehrere Rückgabewerte
+## Funktionen mit Parametern und mehreren Rückgabewerten
+
+In vielen Programmiersprachen können Funktionen nur einen einzelnen Wert
+zurückgeben. (Natürlich können auch Datenstrukturen bestehend aus mehreren
+Werten zurückgegeben werden, aber eben nicht mehrere loose Werte.)
+
+Eine Funktion, die mehrere Werte zurückgibt, hat eine Liste von Rückgabetypen
+(in runden Klammern). Die folgende Funktion dividiert den gegebenen Dividenden
+(`dividend`) durch den gegebenen Divisor (`divisor`). Bei der Division gibt es
+einen Sonderfall: Die Division durch 0 (bzw. durch 0.0) ist nicht erlaubt. In
+diesem Fall soll auch ein Fehler (`error`) zurückgegeben werden. Bei einer
+regulären Division wird ein Ergebnis und _kein_ Fehler (bzw. `nil`)
+zurückgegeben:
 
 ```go
 func divide(dividend, divisor float32) (float32, error) {
@@ -170,14 +160,19 @@ fmt.Println(divide(10.0, 3.0))
 fmt.Println(divide(10.0, 0.0))
 ```
 
+Fehler haben den Typ `error` und können mit der Funktion `errors.New` erzeugt
+werden, indem man einen String mitgibt, der den Fehler beschreibt.
+
 Ausgabe:
 
 	3.3333333 <nil>
 	0 divide by 0
 
-# Funktionen in Go (IX): Fehlerbehandlung I
+### Fehlerbehandlung
 
-Diese Funktion gibt möglicherweise einen Fehler zurück…:
+Die Funktion `computeAverage` berechnet den Durchschnitt des gegebenen Slices
+`values`. Ein Durchschnitt kann aber nur berechnet werden, wenn effektiv Werte
+da sind. Bei einem leeren Slice soll darum ein `error` zurückgegeben werden:
 
 ```go
 func computeAverage(values []float32) (float32, error) {
@@ -192,9 +187,15 @@ func computeAverage(values []float32) (float32, error) {
 }
 ```
 
-# Funktionen in Go (X): Fehlerbehandlung II
+Hier wird der Fehler mithilfe der Funktion `fmt.Errorf` erzeugt, was analog zu
+`fmt.Printf` erfolgt, aber einen Wert vom Typ `error` zurückgibt.
 
-…worauf der Aufrufer reagieren muss:
+Wird eine Funktion aufgerufen, die möglicherweise einen Fehler zurückgibt, muss
+der Aufrufer diesen behandeln. Wird kein Fehler zurÜckgegeben (`err == nil`),
+ist kein Fehler passiert, und das Ergebnis (`average`) kann verwendet werden.
+Wird hingegen ein Fehler zurückgegeben (`err == nil`), muss darauf reagiert
+werden. Das Ergebnis (`average`) wird dann keinen sinnvollen Wert haben und muss
+ignoriert werden:
 
 ```go
 grades := makeRandomGrades() // returns 0..2 grades
@@ -211,7 +212,9 @@ Ausgabe:
     compute average of []: cannot compute average of []
 	the average of [2.41 5.07] is 3.74
 
-# Methoden (I): Ist Go objektorientiert?
+# Methoden
+
+Handelt es sich bei Go um eine objektorientierte Programmiersprache?
 
 > Question: **Is Go an object-oriented language?**
 >
@@ -223,13 +226,18 @@ Volle Antwort: [Go FAQ](https://go.dev/doc/faq#Is_Go_an_object-oriented_language
 Go hat keine Klassen und Vererbung, Funktionen können aber als _Methoden_
 implementiert werden.
 
-# Methoden (II): Neuer Typ mit Funktion
+## Funktionen, die auf Typen arbeiten
 
-Funktionen können Parameter beliebiger Typen erwarten:
+Betrachten wir den Typ `Celsius` (ein Alias für `float32`):
 
 ```go
 type Celsius float32
+```
 
+Für diesen wird eine Funktion `outputCelsius` geschrieben. Die Funktion erwartet
+einen Wert vom Typ `Celsius` und gibt ihn formatiert aus:
+
+```go
 func outputCelsius(c Celsius) {
 	fmt.Printf("%.2f°C\n", c)
 }
@@ -241,9 +249,14 @@ outputCelsius(coldest) // -273.15°C
 outputCelsius(warm) // 32.50°C
 ```
 
-# Methoden (III): Neuer Typ mit Methode
+## Funktionen als Methoden implementieren
 
-Funktionen können auch an genau einen Typen "angehängt" werden:
+Da die Funktion `outputCelsius` nur im Zusammenhang mit dem Typ `Celsius`
+verwendet werden kann, wäre es sinnvoll, wenn man die Funktion mit dem Typ
+verbinden könnte.
+
+Go bietet diese Möglichkeit, indem Funktionen an genau einen Typen "angehängt"
+werden können:
 
 ```go
 type Celsius float32
@@ -251,7 +264,13 @@ type Celsius float32
 func (c Celsius) Output() {
 	fmt.Printf("%.2f°C\n", c)
 }
+```
 
+Der Parameter `c` wird neu zu einem _receiver argument_ dem Funktionsnamen
+vorangestellt. Die Funktion kann neu folgendermassen als Methode aufgerufen
+werden:
+
+```go
 var coldest Celsius = -273.15
 var warm Celsius = 32.5
 
