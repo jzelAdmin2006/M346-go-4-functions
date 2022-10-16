@@ -145,9 +145,9 @@ Eine Funktion, die mehrere Werte zurückgibt, hat eine Liste von Rückgabetypen
 (in runden Klammern). Die folgende Funktion dividiert den gegebenen Dividenden
 (`dividend`) durch den gegebenen Divisor (`divisor`). Bei der Division gibt es
 einen Sonderfall: Die Division durch 0 (bzw. durch 0.0) ist nicht erlaubt. In
-diesem Fall soll auch ein Fehler (`error`) zurückgegeben werden. Bei einer
-regulären Division wird ein Ergebnis und _kein_ Fehler (bzw. `nil`)
-zurückgegeben:
+diesem Fall soll auch ein Fehler (`error`, [Spec](https://go.dev/ref/spec#Errors))
+zurückgegeben werden. Bei einer regulären Division wird ein Ergebnis und _kein_
+Fehler (bzw. `nil`) zurückgegeben:
 
 ```go
 func divide(dividend, divisor float32) (float32, error) {
@@ -224,7 +224,7 @@ Handelt es sich bei Go um eine objektorientierte Programmiersprache?
 Volle Antwort: [Go FAQ](https://go.dev/doc/faq#Is_Go_an_object-oriented_language)
 
 Go hat keine Klassen und Vererbung, Funktionen können aber als _Methoden_
-implementiert werden.
+([Spec](https://go.dev/ref/spec#Method_declarations)) implementiert werden.
 
 ## Funktionen, die auf Typen arbeiten
 
