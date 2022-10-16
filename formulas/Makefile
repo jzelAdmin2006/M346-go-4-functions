@@ -1,7 +1,11 @@
 .PHONY: all clean
 
-all: grade.pdf pythagoras.pdf hypotenuse.pdf quadratic-formula.pdf discriminant.pdf \
-	quadratic-formula-discriminant.pdf celsius-to-fahrenheit.pdf fahrenheit-to-celsius.pdf
+all: grade.png pythagoras.png hypotenuse.png quadratic-formula.png discriminant.png \
+	quadratic-formula-discriminant.png celsius-to-fahrenheit.png fahrenheit-to-celsius.png
+
+.SUFFIXES: .pdf .png
+.pdf.png:
+	convert -density 300 $< $@
 
 .SUFFIXES: .tex .pdf
 .tex.pdf:
