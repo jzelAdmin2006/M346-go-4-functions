@@ -101,7 +101,13 @@ Tipp: Verwenden Sie die Funktion [`math.Pow`](https://pkg.go.dev/math#Pow) und
 
 Rufen Sie die Funktion dreimal auf, sodass je ein Ergebnis mit zwei Lösungen,
 mit einer Lösung und ohne Lösung entsteht. Dokumentieren Sie die Ergebnisse
-wiederum als Kommentare.
+wiederum als Kommentare. Sie können hierzu die folgenden Testdaten verwenden:
+
+| D | a | b | c |
+|--:|--:|--:|--:|
+| + | 3 | 4 | 1 |
+| 0 | 2 | 4 | 2 |
+| - | 3 | 4 | 2 |
 
 ### Zusatzaufgabe
 
