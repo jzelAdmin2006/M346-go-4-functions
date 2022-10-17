@@ -5,7 +5,7 @@ all: grade.png pythagoras.png hypotenuse.png quadratic-formula.png discriminant.
 
 .SUFFIXES: .pdf .png
 .pdf.png:
-	convert -density 200 $< $@
+	convert -density 200 -background white -flatten $< $@
 
 .SUFFIXES: .tex .pdf
 .tex.pdf:
