@@ -9,7 +9,7 @@ implementiert werden:
 ```go
 func f(x int) int {
     y := 2 * x
-    return x
+    return y
 }
 ```
 
