@@ -45,4 +45,14 @@ func main() {
 	waterBoilingTemperatureFahrenheit.ConvertToCelsius()                                                                  // 100
 	var waterSolidificationTemperatureFahrenheit Fahrenheit = waterSolidificationTemperatureCelsius.ConvertToFahrenheit() // 32
 	waterSolidificationTemperatureFahrenheit.ConvertToCelsius()                                                           // 0
+
+	/*
+		Antwort auf Zusatzfrage:
+			Mir gefällt die folgende Notation besser, auch wenn ich persönlich Benennungen wie 'c' weniger mag.:
+				var c Celsius = 23
+				fmt.Println(c.ConvertToFahrenheit().ConvertToCelsius())
+
+				Der bei mir entscheidende Grund bezüglich der Übersichtlichkeit ist, dass bei dieser Notation besser ein 'normaler' Satz in einer Sprache wie Deutsch oder Englisch bezüglich der Reihenfolge abgebildet wird.
+				Ich würde eher "Zuerst konvertiere ich das Ganze zu Fahrenheit, dann zu Celsius." sagen als "Ich konvertiere die Fahrenheittemperatur zu Celsius, welche ich zu Fahrenheit konvertiert habe."
+	*/
 }
