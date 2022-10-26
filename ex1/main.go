@@ -17,7 +17,7 @@ func computeGrade(gotPoints, maxPoints float32) (float32, error) {
 	return gotPoints/maxPoints*5 + 1, nil
 }
 
-type exam struct {
+type Exam struct {
 	gotPoints float32
 	maxPoints float32
 }
@@ -33,9 +33,9 @@ func main() {
 	computeGrade(10, 10)  // 6
 
 	// extra task
-	var randomExams []exam
+	var randomExams []Exam
 	for i := 0; i < 20; i++ {
-		randomExams = append(randomExams, exam{getRandomExamPoints(), getRandomExamPoints()})
+		randomExams = append(randomExams, Exam{getRandomExamPoints(), getRandomExamPoints()})
 	}
 	for _, randomExam := range randomExams {
 		grade, err := computeGrade(randomExam.gotPoints, randomExam.maxPoints)
