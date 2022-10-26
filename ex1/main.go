@@ -1,7 +1,11 @@
 package main
 
-// TODO: implement the function computeGrade
+func computeGrade(gotPoints, maxPoints float32) float32 {
+	return gotPoints/maxPoints*5 + 1
+}
 
 func main() {
-	// TODO: call the function computeGrade
+	computeGrade(0, 6)    // 1
+	computeGrade(9.5, 18) // 3.6388888
+	computeGrade(10, 10)  // 6
 }
